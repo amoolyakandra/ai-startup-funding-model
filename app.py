@@ -576,14 +576,22 @@ berkus_score = np.mean([
     traction_score
 ])
 
-comparison_data = pd.DataFrame({
-    "Method": ["Berkus Method", "AI Model"],
-    "Score": [
-        berkus_score * 10,
-        predicted_score
-    ]
-})
+if "predicted_score" in locals():
 
+    comparison_data = pd.DataFrame({
+        "Method": ["Berkus Method", "AI Model"],
+        "Score": [
+            berkus_score * 10,
+            predicted_score
+        ]
+    })
+
+    st.bar_chart(
+        comparison_data.set_index("Method")
+    )
+
+else:
+    st.info("Click 'Assess Startup' to generate the AI vs. Berkus comparison.")
 st.bar_chart(
     comparison_data.set_index("Method")
 )
