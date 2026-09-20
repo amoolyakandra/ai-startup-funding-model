@@ -592,9 +592,7 @@ if "predicted_score" in locals():
 
 else:
     st.info("Click 'Assess Startup' to generate the AI vs. Berkus comparison.")
-st.bar_chart(
-    comparison_data.set_index("Method")
-)
+
 
 st.write(
     "The Berkus Method provides a structured early-stage assessment, "
